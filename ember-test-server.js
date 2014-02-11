@@ -1,7 +1,7 @@
 (function () {
 	var server;
 
-	Ember.Test.regsiterAsyncHelper('serverResponse', function (app, verb, url, body, status) {
+	Ember.Test.registerAsyncHelper('serverResponse', function (app, verb, url, body, status) {
 		if (!server) createServer();
 
 		status = status || 200;
