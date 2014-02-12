@@ -17,8 +17,9 @@
     });
 
 
+	// Clear the server responses
     Ember.Test.registerHelper('serverReset', function () {
-        server.restore();
+        server.responses = [];
     });
 
     Ember.Test.registerHelper('serverStart', function () {
@@ -28,6 +29,5 @@
     function createServer () {
         server = sinon.fakeServer.create();
         server.autoRespond = true;
-        server.autoRespondAfter = 1;
     }
 })();
