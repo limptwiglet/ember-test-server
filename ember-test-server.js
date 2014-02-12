@@ -22,6 +22,10 @@
         server.responses = [];
     });
 
+    Ember.Test.registerHelper('serverRestore', function () {
+    	server.restore();
+    });
+
     Ember.Test.registerHelper('serverStart', function () {
         createServer();
     });
