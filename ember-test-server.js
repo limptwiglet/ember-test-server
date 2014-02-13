@@ -1,7 +1,7 @@
 (function () {
     var server;
 
-    Ember.Test.registerHelper('serverResponse', function (app, verb, url, body, status) {
+    window.serverResponse = function (verb, url, body, status) {
         if (!server) createServer();
 
         status = status || 200;
@@ -14,16 +14,18 @@
             ]);
 
         server.respond();
-    });
+    };
 
 
 	// Clear the server responses
-    Ember.Test.registerHelper('serverReset', function () {
-        server.responses = [];
-    });
+    window.serverReset = function () {
+        if (server) {
+            server.responses = [];
+        }
+    };
 
     Ember.Test.registerHelper('serverRestore', function () {
-    	server.restore();
+        server.restore();
     });
 
     Ember.Test.registerHelper('serverStart', function () {
