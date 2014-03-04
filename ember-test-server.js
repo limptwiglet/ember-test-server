@@ -17,7 +17,7 @@
 					body
 				]);
         } else if (typeof verb === 'function') {
-       		server.respondWith(method);
+       		server.respondWith(verb);
         } else if (typeof body === 'function') {
        		server.respondWith(verb.toUpperCase(), url, body);
 
